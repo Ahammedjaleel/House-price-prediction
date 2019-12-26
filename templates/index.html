@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+<style>
+body {background-color: Beige;}
+h1   {color: DarkBlue;}
+p    {color: red;}
+</style>
+
+
+<title>
+
+
+
+</title>
+ 
+</head>
+
+<body>
+
+
+
+ <div class="login">
+	<h1>Predict House Price</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	
+	
+
+	<label for="relation">Overall Quality</label>
+    <select id="relation" name="relation">
+      <option value=1>Grade 1</option>
+      <option value="2">Grade 2</option>
+      <option value="3">Grade 3</option>
+      <option value="4">Grade 4</option>
+      <option value="5">Grade 5</option>
+      <option value="6">Grade 6</option>
+	  <option value="7">Grade 7</option>
+	  <option value="8">Grade 8</option>
+	  <option value="9">Grade 9</option>
+	  <option value="10">Grade 10</option>
+    </select>
+	
+	
+	
+	
+    	<input type="text" name="YearBuilt" placeholder="Construction Year" required="required" />
+		
+        <input type="text" name="YearRemodAdd" placeholder="Renovation Year" required="required" />
+		
+		<input type="text" name="TotalBsmtSF" placeholder="Basement Area(sqr ft)" required="required" />
+      		
+		<input type="text" name="1stFlrSF" placeholder="1stFloor Area(sqr ft)" required="required" />
+		<br>
+		<br>
+		<br>
+		GrdLivingArea
+ 
+		<input type="text" name="GrLivArea" placeholder="Living Area(sqr ft)" required="required" />
+		<input type="text" name="FullBath" placeholder="No of Bathroom" required="required" />
+		<input type="text" name="TotRmsAbvGrd" placeholder="Number of Rooms" required="required" />
+		<input type="text" name="GarageYrBlt" placeholder="Construction Year(Garage)" required="required" />
+		<br>
+		<br> 
+		<br>
+		
+		<label for="relation1">Parking Lots  </label>
+    <select id="relation1" name="relation1">
+      <option value="0">For 0 Vehicle</option>
+      <option value="1">For 1 Vehicle</option>
+      <option value="2">For 2 Vehicle</option>
+      <option value="3">For 3 Vehicle</option>
+      <option value="4">For 4 Vehicle</option>
+     
+    </select>
+		<input type="text" name="GarageArea" placeholder="Garage Area(sqr ft)" required="required" />
+		
+		
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+	{{ prediction_text }}
+ </div>
+
+
+</body>
+</html>
